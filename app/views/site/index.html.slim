@@ -1,0 +1,33 @@
+doctype html
+html lang="en"
+  head
+    meta charset="UTF-8"
+      title BriannFishy
+  body
+    header role="banner"
+      .navbar.navbar-default.navbar-fixed-top role="navigation"
+        .container-fluid
+          .navbar-header
+            .navbar-brand href="#" Memory
+    main.container role="main"
+      .row
+        .col-md-4.col-md-offset-9.box-bg
+          form#login-form accept-charset="UTF-8" action="#" method="post"
+            fieldset
+              legend.text-leg Sign In @ Sweet Memory
+              .form-group
+                input#user_email.form-control.input-lg name="user[email]" placeholder=("Email Address") type="text"
+              .form-group
+                input#user_password.form-control.input-lg name="user[password]" placeholder="Password" type="password"
+              .form-group
+                input.btn.btn-primary.btn-lg.btn-block type="submit" value=("Sign In")
+    footer
+      / .col-md-4.col-md-offset-4
+      p.text-muted.credit
+        = link_to "Privacy Policy", privacy_url
+        | &bull;
+        = link_to "Terms of Use", terms_url
+        | &bull;
+        | &copy; 2014 Sweet Memories
+
+
