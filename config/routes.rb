@@ -1,6 +1,6 @@
 Brian::Application.routes.draw do
 
-  root 'site#index' #step 1 where browser -> server
+  root 'site#index'
 
   get 'login' => 'session#new'
   post 'login' => 'session#create'
@@ -12,4 +12,3 @@ Brian::Application.routes.draw do
 
 end
 
-# the concept of MVC
