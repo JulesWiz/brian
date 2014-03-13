@@ -24,15 +24,15 @@ html lang="en"
     ol
       - @users.each do |some_user|
         li
-          = some_user.email
+          = some_user.email #render logic
 
 / try to print all users
     footer
       / .col-md-4.col-md-offset-4
       p.text-muted.credit
-        = link_to "Privacy Policy", privacy_url
+        = link_to "Privacy Policy", privacy_url #render logic
         | &bull;
-        = link_to "Terms of Use", terms_url
+        = link_to "Terms of Use", terms_url #render logic
         | &bull;
         | &copy; 2014 Sweet Memories
 
