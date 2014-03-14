@@ -9,6 +9,9 @@ class User
   field :email, type: String
   field :salt, type: String
   field :fish, type: String
+  field :name, type: String
+  field :admin, type: Boolean
+  field :yearOfKnowing, type: Integer
 
   before_save :encrypt_password
 
