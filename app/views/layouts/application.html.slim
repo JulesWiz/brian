@@ -18,11 +18,14 @@ html lang="en"
             navbar-brand href="#" Memory
 
     == yield
+    == render partial: "layouts/messages"
 
     footer
-      p.credit.text-muted
-        = link_to "Privacy Policy", privacy_url
-        | &bull;
-        = link_to "Terms of Use", terms_url
-        | &bull;
-        | &copy; 2014 Sweet Memories
+      .container
+        .row
+          p.credit.text-muted
+            = link_to "Privacy Policy", privacy_url
+            | &bull;
+            = link_to "Terms of Use", terms_url
+            | &bull;
+            | &copy; 2014 Sweet Memories

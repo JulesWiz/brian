@@ -4,7 +4,7 @@ main.container role="main"
       = form_for :user, url: login_url, html: { id: "login-form" } do |f|
         fieldset
           legend.text-leg Start now
-          .form-group = flash.map{|key,value| "#{key.capitalize}: #{value}"}.join(";")
+          / .form-group = flash.map{|key,value| "#{key.capitalize}: #{value}"}.join(";")
 
           .form-group
             = f.label :email, class: "sr-only"
