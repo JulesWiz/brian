@@ -3,6 +3,7 @@ class SessionController < ApplicationController
   def new
     # @messages = flash.inspect
     # @messages = flash.map{|key,value| "#{key.capitalize}: #{value}"}.join(";")
+    redirect_to root_url, notice: "You are logged in." if current_user
   end
 
   def create
