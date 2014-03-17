@@ -23,7 +23,7 @@ class SessionController < ApplicationController
   end
 
   def destroy
-    # session[:user_id] = nil
+    session[:user_id] = nil
     # render text: "Log the user out."
     redirect_to login_url, notice: "You've succssfully logout!"
   end
