@@ -19,6 +19,7 @@ class User
 
   before_save :set_random_password, :encrypt_password
   validates :email, presence: true, uniqueness: {case_sensitive: false}
+  validates :password, confirmation: true
   # validates :password, presence: true, uniqueness: {case_sensitive: false}
   # validates :password_confirmation, presence: true, uniqueness: {case_sensitive: false}
 
