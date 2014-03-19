@@ -1,21 +1,25 @@
 class PasswordController < ApplicationController
 
+LINK_EXPIRED = "Your reset link has expired, please generate a new one"
+
   def edit
-    @user = User.find_by code: params[:code]
-    redirect_to login_url, notice: "Your reset link has expired, please generate a new one" unless @user
+    unless @user = User.find_by_code( params[:code] )
+    redirect_to login_url, notice: LINK_EXPIRED
   end
 
   def update
-    @user = User.find_by_code params[:code]
-
-    if @user
+    if @user = User.find_by_code( params[:code] )
     # if user is found
       if params[:user][:password].blank?
-        @user.errors.add(:password, "You cannot leave the password field blank.")
-      elsif @user.update_attributes user_params
-        render text: "Success"
+        @user.errors.add(:password, "can't be blank.")
+        flash.now[:alert] = @user.errors
+        render :edit
+      elsif @user.reset_password( user_params )
+        session[:user_id] = @user.id
+        redirect_to root_url, notice: "You have successfully reset your password."
       else
-        render text: "Failure!"
+        flash.now[:alert] : @user.errors
+        render :edit
       end
     # otherwise show a message not found
     else
