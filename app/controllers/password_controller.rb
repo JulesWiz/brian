@@ -11,14 +11,13 @@ class PasswordController < ApplicationController
   def update
     if @user = User.find_by_code( params[:code] )
     # if user is found
-    binding.pry
       if params[:user][:password].blank?
         @user.errors.add(:password, "can't be blank.")
         flash.now[:alert] = @user.errors
         render :edit
       elsif @user.reset_password( user_params )
         UserNotifier.password_was_reset(@user).deliver
-        session[:user_id] = @user.id
+        log_user_in( @user )
         redirect_to root_url, notice: "You have successfully reset your password."
       else
         flash.now[:alert] = @user.errors
