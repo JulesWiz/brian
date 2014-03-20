@@ -17,8 +17,7 @@ class PasswordController < ApplicationController
         render :edit
       elsif @user.reset_password( user_params )
         UserNotifier.password_was_reset(@user).deliver
-        log_user_in( @user )
-        redirect_to root_url, notice: "You have successfully reset your password."
+        log_user_in( @user, "You have successfully reset your password." )
       else
         flash.now[:alert] = @user.errors
         render :edit

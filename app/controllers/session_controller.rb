@@ -17,12 +17,10 @@ class SessionController < ApplicationController
         render :new
       else
         #authenticate
-        log_user_in( AuthenticateUser.new(session, flash).handle_authenticate_user(user_params) )
-        redirect_to root_url
+        return if log_user_in( AuthenticateUser.new(session, flash).handle_authenticate_user(user_params) )
       end
     else
-      # error msg :user not exists
-      flash[:alert]= "email and password wrong !"
+      # (redirect_to root_url and return) if flash.empty?
       render :new
     end
 
@@ -31,7 +29,7 @@ class SessionController < ApplicationController
   def destroy
     log_user_out
     # render text: "Log the user out."
-    redirect_to login_url, notice: "You've successfully logout!"
+    # redirect_to login_url, notice: "You've successfully logout!"
   end
 
   def form
