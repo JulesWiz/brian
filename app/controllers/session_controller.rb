@@ -7,23 +7,15 @@ class SessionController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:user][:email])
-    password = params[:user][:password]
-
-    if user
-      if password.blank?
-        #password reset
-        PasswordResetter.new(flash).handle_password_reset(user_params)
-        render :new
-      else
-        #authenticate
-        return if log_user_in( AuthenticateUser.new(session, flash).handle_authenticate_user(user_params) )
-      end
+    if params[:user][:password].blank?
+      #password reset
+      PasswordResetter.new(flash).handle_reset_request(user_params)
     else
-      # (redirect_to root_url and return) if flash.empty?
-      render :new
+      #authenticate
+      return if log_user_in( UserAuthenticator.new(session, flash).handle_authenticate_user(user_params) )
     end
-
+    # (redirect_to root_url and return) if flash.empty?
+    render :new
   end
 
   def destroy
@@ -32,12 +24,12 @@ class SessionController < ApplicationController
     # redirect_to login_url, notice: "You've successfully logout!"
   end
 
-  def form
-  end
+  # def form
+  # end
 
-  def formcreate
-    render json: User.all.entries
-  end
+  # def formcreate
+  #   render json: User.all.entries
+  # end
 
   private
 

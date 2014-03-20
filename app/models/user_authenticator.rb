@@ -1,4 +1,4 @@
-class AuthenticateUser
+class UserAuthenticator
 
   AUTH_FAILED = "Unable to log you into the system, please try again"
 
@@ -7,9 +7,13 @@ class AuthenticateUser
     @session = session
   end
 
-  def handle_authenticate_user(params)
+  def authenticate_user(params)
+    #email and password
+
     @flash.now[:alert] = AUTH_FAILED unless @user = User.authenticate(params[:email], params[:password])
     @user
+
   end
+
 
 end
