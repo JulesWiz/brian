@@ -1,0 +1,44 @@
+main.container role="main"
+  .row
+    / .col-md-8.col-md-offset-2.box-bg
+    = link_to "Send your wishes", new_form_url, class: "btn btn-primary btn-lg btn-block"
+    .btn-group.btn-group-justified
+      .btn-group
+        btn.btn-default.btn-lg.active type="button" id="btn-family" Family
+      .btn-group
+        btn.btn-default.btn-lg.active type="button" id="btn-friends" Friends
+    - for form in @forms
+      ul.row class="post-text #{form.relationship}"
+        li.photo
+          = image_tag form.image.url, class: "image-tag"
+        li.quote
+          = form.message
+        li.photo
+          = image_tag form.image.url, class: "image-tag"
+          / li
+          /   = form.name
+          / li
+          /   = form.relationship
+          / li
+          /   = form.message
+          / li
+          /   = form.year
+          / li
+          /   = image_tag form.image.url, class: "image-tag"
+          / li
+          /   = link_to 'Show', form_url(form.id)
+          / li
+          /   = link_to 'Edit', edit_form_url(form.id)
+          / section id="gameboard.board"
+          /   .board-row id="row-0"
+          /     .board-cell.top.left id="cell-0"
+          /     .board-cell.top.center id="cell-1"
+          /     .board-cell.top.right id="cell-2"
+            / .board-row id="row-1"
+            /   .board-cell.middle.left id="cell-3"
+            /   .board-cell.middle.center id="cell-4"
+            /   .board-cell.middle.right id="cell-5"
+            / .board-row id="row-2"
+            /   .board-cell.bottom.left id="cell-6"
+            /   .board-cell.bottom.center id="cell-7"
+            /   .board-cell.bottom.right id="cell-8"

@@ -8,13 +8,10 @@ class SessionController < ApplicationController
 
   def create
     if params[:user][:password].blank?
-      #password reset
       PasswordResetter.new(flash).handle_reset_request(user_params)
     else
-      #authenticate
-      return if log_user_in( UserAuthenticator.new(session, flash).handle_authenticate_user(user_params) )
+      return if log_user_in( UserAuthenticator.new(session, flash).authenticate_user(user_params) )
     end
-    # (redirect_to root_url and return) if flash.empty?
     render :new
   end
 
@@ -23,13 +20,6 @@ class SessionController < ApplicationController
     # render text: "Log the user out."
     # redirect_to login_url, notice: "You've successfully logout!"
   end
-
-  # def form
-  # end
-
-  # def formcreate
-  #   render json: User.all.entries
-  # end
 
   private
 

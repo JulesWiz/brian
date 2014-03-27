@@ -1,14 +1,16 @@
 Brian::Application.routes.draw do
   resources :user
+  resources :form
 
-  root 'site#index'
+  root 'form#index'
+
+  get 'signup' => 'user#new'
+  post 'signup' => 'user#create'
 
   get 'login' => 'session#new'
   post 'login' => 'session#create'
   delete 'logout' => 'session#destroy'
   # get 'logout' => 'session#destroy'
-  get 'form' => 'session#form'
-  post 'form' => 'session#formcreate'
 
   get 'privacy' => 'site#privacy'
   get 'terms' => 'site#terms'
@@ -18,6 +20,7 @@ Brian::Application.routes.draw do
   patch 'reset/:code' => 'password#update'
 
   get 'wdi' => 'site#wdi'
+
 
 end
 

@@ -1,0 +1,41 @@
+main.container role="main"
+  .row
+    .col-md-8.col-md-offset-2.box-bg
+      .legend.text-leg Awesome, #{@form.name}
+      .post-text
+        = "Name : #{@form.name}"
+        br
+        = "Relationship : #{@form.relationship}"
+        br
+        = "Message : #{@form.message}"
+        br
+        = "Year : #{@form.year}"
+        br
+        = image_tag @form.image.url, class: "image-tag"
+        br
+        = link_to 'Edit', edit_form_url
+        br
+        = link_to 'Back', form_index_url
+        br
+        = link_to 'Delete', form_url, method: :delete, data: { confirm: 'Are you sure?' }
+
+
+
+
+
+
+/ <h1>Listing posts</h1>
+
+/ <table>
+/   <tr>
+/     <th>Title</th>
+/     <th>Text</th>
+/   </tr>
+
+/   <% @posts.each do |post| %>
+/     <tr>
+/       <td><%= post.title %></td>
+/       <td><%= post.text %></td>
+/     </tr>
+/   <% end %>
+/ </table>

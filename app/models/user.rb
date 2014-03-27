@@ -6,23 +6,21 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  mount_uploader :image, ImageUploader
+
   attr_accessor :password, :password_confirmation
 
   field :email, type: String
   field :salt, type: String
   field :fish, type: String
-  field :name, type: String
-  field :admin, type: Boolean
-  field :yearOfKnowing, type: Integer
-  field :code, type: String
-  field :expires_at, type: Time
+  field :reset_code, type: String
+  field :reset_expires_at, type: Time
+
+  has_many :forms, validate: false, dependent: :delete, autosave: true
 
   before_save :set_random_password, :encrypt_password
   validates :email, presence: true, uniqueness: {case_sensitive: false}
   validates :password, confirmation: true
-  # validates :password, presence: true, uniqueness: {case_sensitive: false}
-  # validates :password_confirmation, presence: true, uniqueness: {case_sensitive: false}
-
 
   def self.authenticate(email, password)
     user = User.find_by email: email
@@ -30,7 +28,7 @@ class User
   end
 
   def self.find_by_code(code)
-    if user = User.find_by({:code => code, :expires_at => {"$gte" => Time.now.gmtime}})
+    if user = User.find_by({:reset_code => code, :reset_expires_at => {"$gte" => Time.now.gmtime}})
       user.set_expiration
     end
     user
@@ -40,19 +38,23 @@ class User
     self.fish == BCrypt::Engine.hash_secret(password, self.salt)
   end
 
+  def update_info(params)
+    self.update_attributes(params)
+  end
+
   def set_password_reset
-    self.code = SecureRandom.urlsafe_base64
+    self.reset_code = SecureRandom.urlsafe_base64
     set_expiration
   end
 
   def reset_password(params)
     if self.update_attributes(params)
-      self.update_attributes(params.merge( code: nil, expires_at: nil ))
+      self.update_attributes(params.merge( reset_code: nil, reset_expires_at: nil ))
     end
   end
 
   def set_expiration
-    self.expires_at = PASSWORD_RESET_EXPIRES.hours.from_now
+    self.reset_expires_at = PASSWORD_RESET_EXPIRES.hours.from_now
     self.save!
   end
 
@@ -75,3 +77,4 @@ class User
     end
 
 end
+

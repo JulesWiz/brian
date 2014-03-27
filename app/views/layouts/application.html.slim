@@ -8,13 +8,25 @@ html lang="en"
     = csrf_meta_tags
     link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet"
     link href="http://fonts.googleapis.com/css?family=Vampiro+One" rel="stylesheet" type="text/css"
-
+    script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
 
   body
+    #fb-root
+    javascript:
+      | (function(d, s, id) {
+        | var js, fjs = d.getElementsByTagName(s)[0];
+        | if (d.getElementById(id)) return;
+        | js = d.createElement(s); js.id = id;
+        | js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=159948027427309";
+        | fjs.parentNode.insertBefore(js, fjs);
+      | }(document, 'script', 'facebook-jssdk'));
     header role="banner"
       .navbar.navbar-default.navbar-fixed-top role="navigation"
         .container-fluid
           .pull-right
+            .fb-share-button data-href="https://www.facebook.com/pages/Bestime-Cafe-&#x597d;&#x65f6;&#x5149;" data-width="292px" data-type="button_count"
+            / .fb-share-button data-href="https://www.facebook.com/pages/Bestime-Cafe-%E5%A5%BD%E6%97%B6%E5%85%89/597145100334357" data-width="292px" data-type="button_count"
+            = link_to "Sign Up", signup_url, class: "btn btn-primary" unless current_user
             = link_to "Log Out", logout_url, method: :delete, class: "btn btn-danger logout-link" if current_user
           .navbar-header
             navbar-brand href="#" Memory
