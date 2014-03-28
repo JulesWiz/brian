@@ -12,6 +12,7 @@ temp_password = "123"
 
 User.create ([
   { email: "ngjulie0203@gmail.com",
+    admin: true,
     password: temp_password,
     password_confirmation: temp_password
    },

@@ -15,6 +15,7 @@ class User
   field :fish, type: String
   field :reset_code, type: String
   field :reset_expires_at, type: Time
+  field :admin, type: Boolean, default: false
 
   has_many :forms, validate: false, dependent: :delete, autosave: true
 
