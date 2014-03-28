@@ -1,9 +1,9 @@
 class FormController < ApplicationController
 
-  before_action :is_authenticated?, only: [:new, :create, :edit, :update]
+  before_action :is_authenticated?, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @forms = Form.all.entries
+    @forms = Form.desc(:created_at).limit(5).entries
     @family = @forms.select{|x| x.relationship == "family"}
     @friends = @forms.select{|x| x.relationship == "friends"}
     # @form = Form.find_by(id: params[:id])
@@ -18,7 +18,8 @@ class FormController < ApplicationController
     @user = current_user
     @form = @user.forms.build(form_params)
     if @form.save
-      redirect_to form_url(@form.id), notice: "You have successfully send your love."
+      # redirect_to form_url(@form.id), notice: "You have successfully send your love."
+      redirect_to root_url, notice: "You have successfully send your love."
     else
       render :new
       flash[:alert] = "Please fill in all fields"

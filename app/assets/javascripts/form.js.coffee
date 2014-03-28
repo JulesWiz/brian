@@ -12,4 +12,12 @@ $ ->
   $("#startbtn").click ->
     $("#open").slideToggle(300)
 
+  $("#form-btn").click ->
+    $("#down").slideToggle(300)
+
+  $("#open").hide()
+
+  $("#down").hide()
+
+
 

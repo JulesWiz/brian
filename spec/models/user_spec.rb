@@ -65,6 +65,14 @@ describe User do
     expect(result).to be_false
   end
 
+  it "get the code when password is reset"
+    User.create(
+      email: "hi22@gmail.com"
+    )
+
+
+  #1. hash manually
+  #2. get code when password reset
 
 end
 

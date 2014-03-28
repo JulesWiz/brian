@@ -1,7 +1,32 @@
 main.container role="main"
   .row
-    / .col-md-8.col-md-offset-2.box-bg
-    = link_to "Send your wishes", new_form_url, class: "btn btn-primary btn-lg btn-block"
+    / = link_to "Send your wishes", new_form_url, class: "btn btn-primary btn-lg btn-block"
+    btn.btn-primary.btn-lg.btn-block id="form-btn" Send Your Wishes
+    .col-md-8.col-md-offset-2.box-bg id="down"
+        = form_for :form, url: form_index_url, method: :post, html: { id: "submit-form" } do |m|
+          fieldset
+            legend.text-leg Best Wishes to
+            .form-group
+              = m.label :name, class: "sr-only"
+              = m.text_field :name, class: "form-control input-lg", placeholder: "Name"
+            .form-group
+              = m.label :relationship, "Family", :value => "family"
+              = m.radio_button :relationship, "Family"
+              = m.label :relationship, "Friends", :value => "friends"
+              = m.radio_button :relationship, "Friends"
+            .form-group
+              = m.label :message, class: "sr-only"
+              = m.text_area :message, class: "form-control input-lg", placeholder: "Message"
+            .form-group
+              p.label When do you know?
+              = m.label :year, class: "sr-only"
+              = m.select :year, (Time.zone.now.year - 28)..(Time.zone.now.year + 1), class: "form-control input-lg"
+            .form-group
+              p.label Upload your picture
+              = m.label :image, class: "sr-only"
+              = m.file_field :image
+            .form-group
+              = m.submit "Send Your Wishes", class: "btn btn-primary btn-lg btn-block"
     .btn-group.btn-group-justified
       .btn-group
         btn.btn-default.btn-lg.active type="button" id="btn-family" Family
