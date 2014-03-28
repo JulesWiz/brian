@@ -57,13 +57,43 @@ p.clr {
 }
 
 .container {
-  margin-top: 110px ;
+/*  margin-top: 110px ;*/
   min-height: 100%;
   height: auto;
+  width: 1450px;
+  margin: 110px 100px 0px 100px;
   /* Negative indent footer by its height */
 /*  margin: 110px 0 auto -60px;*/
   /* Pad bottom by footer height */
 /*  padding: 0 0 100px;*/
+}
+
+.card-pattern {
+  background-image: url(<%= asset_path 'card.png' %>);
+  background-repeat: repeat;
+  background-position: left top;
+  height: auto;
+  width: 1068px;
+  margin: -150px auto;
+  clear: both;
+  padding-bottom: 40px;
+  z-index: 999999;
+}
+
+.bride {
+  width: 46%;
+  font-size: 35px;
+  float: right;
+  margin-top: -90px;
+  text-align: left;
+}
+
+.groom {
+  width: 44%;
+  font-size: 35px;
+  float: left;
+  margin-top: -90px;
+  text-align: right;
 }
 
 .logout-link {

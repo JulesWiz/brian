@@ -3,8 +3,12 @@ main.container role="main"
     / = link_to "Send your wishes", new_form_url, class: "btn btn-primary btn-lg btn-block"
     p.clr Were Getting Married  -  Sunday, 8th June 2014
     .middleheart
+    p.groom Jeff Bezos
+    p.bride Jeff Bezos
+    .container
+      .card-pattern
     btn.btn-primary.btn-lg.btn-block id="form-btn" Send Your Wishes
-    col-xs-6.col-sm-3.box-bg id="down"
+    box-bg id="down"
         = form_for :form, url: form_index_url, method: :post, html: { id: "submit-form" } do |m|
           fieldset
             legend.text-leg Best Wishes to
