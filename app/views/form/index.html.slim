@@ -1,8 +1,9 @@
 main.container role="main"
   .row
     / = link_to "Send your wishes", new_form_url, class: "btn btn-primary btn-lg btn-block"
+    p.clr Were Getting Married  -  Sunday, 8th June 2014
     btn.btn-primary.btn-lg.btn-block id="form-btn" Send Your Wishes
-    .col-md-8.col-md-offset-2.box-bg id="down"
+    col-xs-6.col-sm-3.box-bg id="down"
         = form_for :form, url: form_index_url, method: :post, html: { id: "submit-form" } do |m|
           fieldset
             legend.text-leg Best Wishes to
@@ -32,12 +33,12 @@ main.container role="main"
         btn.btn-default.btn-lg.active type="button" id="btn-family" Family
       .btn-group
         btn.btn-default.btn-lg.active type="button" id="btn-friends" Friends
-    .gridster
-      - for form in @forms
-        ul class="post-text #{form.relationship}"
-          li data-col="1" data-row="1" data-sizex="1" data-sizey="1"
-            = image_tag form.image.url, class: "image-tag pin"
-            p = form.message
+  .gridster
+    - for form in @forms
+      ul class="post-text #{form.relationship}"
+        li data-col="1" data-row="1" data-sizex="1" data-sizey="1"
+          = image_tag form.image.url, class: "image-tag pin"
+          p.pin-p = form.message
           / li data-col="1" data-row="2" data-sizex="1" data-sizey="1"
           /   = form.message
           / li data-col="1" data-row="3" data-sizex="1" data-sizey="1"

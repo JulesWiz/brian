@@ -14,11 +14,26 @@
  */
 
 .navbar.navbar-default {
-  background: rgba(173, 173, 173, 0.2);
+  background: rgba(172, 66, 99, 1);
   color: white;
   font-size: 40px;
   text-shadow: 4px 4px 8px gray;
   font-family: 'Vampiro One', cursive;
+}
+
+body {
+  background-color: rgba(245, 240, 234, 1);
+/*  background: url(<%= asset_path 'Wedding.jpg' %>) no-repeat center center fixed;*/
+/*  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  font-family: 'Vampiro One', cursive;
+  height: 100%;
+}
+
+p.clr {
+  text-align: center;
 }
 
 /*
@@ -36,24 +51,13 @@
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 110px 0 auto -60px;
+/*  margin: 110px 0 auto -60px;*/
   /* Pad bottom by footer height */
-  padding: 0 0 100px;
+/*  padding: 0 0 100px;*/
 }
 
 .logout-link {
   margin-top: 8px ;
-}
-
-body {
-  background: url(<%= asset_path 'Wedding.jpg' %>) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color: white;
-  font-family: 'Vampiro One', cursive;
-  height: 100%;
 }
 
 .box-bg {
@@ -61,6 +65,10 @@ body {
   background: rgba(173, 173, 173, 0.5);
   border-radius: 10px ;
   border: 10px solid transparent;
+}
+
+.btn {
+  background-color: rgba(227, 158, 152, 1);
 }
 
 .open {
@@ -91,9 +99,8 @@ body {
 
 .pin {
   display: inline-block;
-  background: #FEFEFE;
+/*  background: #FEFEFE;*/
 /*  border: 2px solid #FAFAFA;*/
- /* box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);*/
   margin: 0 0px 15px;
   -webkit-column-break-inside: avoid;
   -moz-column-break-inside: avoid;
@@ -116,13 +123,7 @@ body {
   margin-bottom: 5px;
 }
 
-.pin p {
-  font: 12px/18px Arial, sans-serif;
-  color: #333;
-  margin: 0;
-}
-
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Vampiro One', cursive;
 }
 
@@ -136,11 +137,18 @@ li {
   height: 500px;
   width: 310px;
   list-style: none;
-  margin: 50px;
+  margin: 14px;
   background: white;
   color: black;
   display: inline-block;
   border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+}
+
+.pin-p {
+  font: 16px Helvetica;
+  color: #333;
+  margin: 0 20px;
 }
 
 /*li.photo {
