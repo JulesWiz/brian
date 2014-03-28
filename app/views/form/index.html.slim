@@ -32,14 +32,32 @@ main.container role="main"
         btn.btn-default.btn-lg.active type="button" id="btn-family" Family
       .btn-group
         btn.btn-default.btn-lg.active type="button" id="btn-friends" Friends
-    - for form in @forms
-      ul.row class="post-text #{form.relationship}"
-        li.photo
-          = image_tag form.image.url, class: "image-tag"
-        li.quote
-          = form.message
-        li.photo
-          = image_tag form.image.url, class: "image-tag"
+    .gridster
+      - for form in @forms
+        ul class="post-text #{form.relationship}"
+          li data-col="1" data-row="1" data-sizex="1" data-sizey="1"
+            = image_tag form.image.url, class: "image-tag pin"
+            p = form.message
+          / li data-col="1" data-row="2" data-sizex="1" data-sizey="1"
+          /   = form.message
+          / li data-col="1" data-row="3" data-sizex="1" data-sizey="1"
+          / li data-col="2" data-row="1" data-sizex="2" data-sizey="1"
+          / li data-col="2" data-row="2" data-sizex="2" data-sizey="2"
+          / li data-col="4" data-row="1" data-sizex="1" data-sizey="1"
+          / li data-col="4" data-row="2" data-sizex="2" data-sizey="1"
+          / li data-col="4" data-row="3" data-sizex="1" data-sizey="1"
+          / li data-col="5" data-row="1" data-sizex="1" data-sizey="1"
+          / li data-col="5" data-row="3" data-sizex="1" data-sizey="1"
+          / li data-col="6" data-row="1" data-sizex="1" data-sizey="1"
+          / li data-col="6" data-row="2" data-sizex="1" data-sizey="2"
+          / - for form in @forms
+          /   ul.row class="post-text #{form.relationship}"
+          /     li.photo
+          /       = image_tag form.image.url, class: "image-tag"
+          /     li.quote
+          /       = form.message
+          /     li.photo
+          /       = image_tag form.image.url, class: "image-tag"
           / li
           /   = form.name
           / li
