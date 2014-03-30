@@ -4,6 +4,7 @@ main.container role="main"
       legend.text-leg id="startbtn" Start now
       = form_for :user, url: login_url, html: { id: "login-form" } do |f|
         fieldset
+          / .form-group id="open"
           .form-group id="open"
             .form-group
               = f.label :email, class: "sr-only"

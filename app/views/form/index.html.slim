@@ -1,17 +1,17 @@
 main.container role="main"
   .row
     / = link_to "Send your wishes", new_form_url, class: "btn btn-primary btn-lg btn-block"
-    p.clr Were Getting Married  -  Sunday, 8th June 2014
-    .middleheart
-    p.groom Jeff Bezos
-    p.bride Jeffie Bezos
     .card-pattern
+      p.clr Were Getting Married  -  Sunday, 8th June 2014
+      .middleheart
+      p.groom Jeff Bezos
+      p.bride Jeffie Bezos
       .card-left
         .groom-image
       .card-middle
       .card-right
         .bride-image
-      btn.btn-primary.btn-lg.btn-send id="form-btn" Send Your Wishes
+      btn.btn-lg.btn-send id="form-btn" Send Your Wishes
       .form-group.box-bg-index id="down"
         = form_for :form, url: form_index_url, method: :post, html: { id: "submit-form" } do |m|
           fieldset
@@ -36,20 +36,22 @@ main.container role="main"
               = m.label :image, class: "sr-only"
               = m.file_field :image
             .form-group
-              = m.submit "Congratulations", class: "btn btn-primary btn-lg btn-block"
-      .btn-group.btn-group-justified.btn-filter
-        .btn-group
-          btn.btn-lg.active.btn-select type="button" id="btn-all" All
-          span.glyphicon.glyphicon-heart
-          btn.btn-lg.active.btn-select type="button" id="btn-family" Family
-          span.glyphicon.glyphicon-heart
-          btn.btn-lg.active.btn-select type="button" id="btn-friends" Friends
-      .gridster
-        - for form in @forms
-          ul class="#{form.relationship}"
-            li data-col="1" data-row="1" data-sizex="1" data-sizey="1"
-              = image_tag form.image.url, class: "image-tag pin post-text"
-              p.pin-p = form.message
+              = m.submit "Congratulations", class: "btn btn-lg btn-block"
+    .btn-group.btn-group-justified.btn-filter
+      .btn-group
+        btn.btn-lg.active.btn-select type="button" id="btn-all" All
+        span.glyphicon.glyphicon-heart
+        btn.btn-lg.active.btn-select type="button" id="btn-family" Family
+        span.glyphicon.glyphicon-heart
+        btn.btn-lg.active.btn-select type="button" id="btn-friends" Friends
+    .gridster
+      - for form in @forms
+        ul class="#{form.relationship}"
+          li data-col="1" data-row="1" data-sizex="1" data-sizey="1"
+            = image_tag form.image.url, class: "image-tag-pin pin post-text"
+            p.pin-p = form.message
+            = image_tag form.image.url, class: "img-circle"
+            = form.name
         / li data-col="1" data-row="2" data-sizex="1" data-sizey="1"
         /   = form.message
         / li data-col="1" data-row="3" data-sizex="1" data-sizey="1"

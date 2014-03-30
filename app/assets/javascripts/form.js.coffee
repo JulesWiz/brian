@@ -14,8 +14,8 @@ $ ->
     $(".Friends").show()
     $(".Family").show()
 
-  $("#startbtn").click ->
-    $("#open").slideToggle(300)
+  # $("#startbtn").click ->
+  #   $("#open").slideToggle(300)
 
   $("#form-btn").click ->
     $("#down").slideToggle(300)
