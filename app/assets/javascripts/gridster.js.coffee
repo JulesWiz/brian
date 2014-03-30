@@ -6,10 +6,17 @@ $ ->
       10
     ]
     widget_base_dimensions: [
-      140
-      140
+      310
+      500
     ]
+  # gridster = $(".gridster ul").gridster().data("gridster")
+  # $("#draggable").draggable()
+  # $(".gridster ").droppable drop: (event, ui) ->
+  #   $("#draggable").removeAttr "style"
+  #   gridster.add_widget "<li class=\"new\"><img src=\"http://www.sparity.com/images/facebookIcon.jpg\" alt=\"facebook\"  ></li>", 1, 1
+  #   return
 
+  # return
 
 
 
@@ -62,15 +69,15 @@ $ ->
 
   # # this is where you can check if your data is sent to the server or not.
   # # A status of 200 implies success
-  # grid_canvas = $(".gridster > ul").gridster(
-  #   widget_margins: [
-  #     3
-  #     3
-  #   ]
-  #   widget_base_dimensions: [
-  #     110
-  #     110
-  #   ]
+  # # grid_canvas = $(".gridster > ul").gridster(
+  # #   widget_margins: [
+  # #     3
+  # #     3
+  # #   ]
+  # #   widget_base_dimensions: [
+  # #     110
+  # #     110
+  # #   ]
   #   serialize_params: ($w, wgd) ->
   #     id: $($w).attr("id")
   #     col: wgd.col
