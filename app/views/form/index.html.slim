@@ -12,7 +12,7 @@ main.container role="main"
       .card-right
         .bride-image
       btn.btn-primary.btn-lg.btn-send id="form-btn" Send Your Wishes
-      .form-group.box-bg id="down"
+      .form-group.box-bg-index id="down"
         = form_for :form, url: form_index_url, method: :post, html: { id: "submit-form" } do |m|
           fieldset
             legend.text-leg Best Wishes to
@@ -36,12 +36,14 @@ main.container role="main"
               = m.label :image, class: "sr-only"
               = m.file_field :image
             .form-group
-              = m.submit "Send Your Wishes", class: "btn btn-primary btn-lg btn-block"
+              = m.submit "Congratulations", class: "btn btn-primary btn-lg btn-block"
       .btn-group.btn-group-justified.btn-filter
         .btn-group
-          btn.btn-default.btn-lg.active type="button" id="btn-family" Family
-        .btn-group
-          btn.btn-default.btn-lg.active type="button" id="btn-friends" Friends
+          btn.btn-lg.active.btn-select type="button" id="btn-all" All
+          span.glyphicon.glyphicon-heart
+          btn.btn-lg.active.btn-select type="button" id="btn-family" Family
+          span.glyphicon.glyphicon-heart
+          btn.btn-lg.active.btn-select type="button" id="btn-friends" Friends
       .gridster
         - for form in @forms
           ul class="#{form.relationship}"

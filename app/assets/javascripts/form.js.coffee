@@ -9,6 +9,11 @@ $ ->
     $(".Friends").show()
     $(".Family").hide()
 
+  $("#btn-all").click ->
+    # value = $(@).html()
+    $(".Friends").show()
+    $(".Family").show()
+
   $("#startbtn").click ->
     $("#open").slideToggle(300)
 

@@ -34,6 +34,7 @@ body {
 
 p.clr {
   text-align: center;
+  margin-top: -30px;
 }
 
 .middleheart {
@@ -60,7 +61,7 @@ p.clr {
 /*  margin-top: 110px ;*/
   min-height: 100%;
   height: auto;
-  width: 1450px;
+  width: auto;
   margin: 110px 100px 0px 100px;
   /* Negative indent footer by its height */
 /*  margin: 110px 0 auto -60px;*/
@@ -95,7 +96,7 @@ p.clr {
 .bride-image {
   background-image: url(<%= asset_path 'bride.png' %>);
   background-repeat: no-repeat;
-  margin-left: 50%;
+  margin-left: 53%;
   width: 344px;
   height: 289px;
 }
@@ -127,6 +128,15 @@ p.clr {
   border: 10px solid transparent;
 }
 
+.box-bg-index {
+  /*background: rgba(0, 0, 0, 0.2);*/
+  background: rgba(173, 173, 173, 0.5);
+  border-radius: 10px ;
+  border: 10px solid transparent;
+  width: 600px;
+  margin-left: 29%
+}
+
 .btn {
   background-color: rgba(227, 158, 152, 1);
   border-color: rgba(227, 158, 152, 1);
@@ -139,6 +149,21 @@ p.clr {
 .btn-filter {
   margin-top: 40px;
 }
+
+.btn-select {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 50px;
+  transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+}
+
+.btn-select:hover {
+  background-color: #E0645C;
+  color: white;
+}
+
 .open {
   display: inline;
 }
