@@ -2,12 +2,12 @@ $ ->
 
   $(".gridster ul").gridster
     widget_margins: [
-      10
-      10
+      20
+      20
     ]
     widget_base_dimensions: [
-      310
-      500
+      360
+      560
     ]
   # gridster = $(".gridster ul").gridster().data("gridster")
   # $("#draggable").draggable()

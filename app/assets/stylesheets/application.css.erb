@@ -13,12 +13,22 @@
  *= require_gridster.css
  */
 
+/*beige = rgba(245, 240, 234, 1)
+light pink = rgba(255, 66, 126, 0.8)
+light gray = rgba(173, 173, 173, 0.5)*/
+
+
+
 .navbar.navbar-default {
   background: rgba(255, 66, 126, 0.8);
   color: white;
   font-size: 40px;
   text-shadow: 4px 4px 8px gray;
   font-family: 'Vampiro One', cursive;
+}
+
+.col-md-offset-9 {
+  margin-left: 70%;
 }
 
 body {
@@ -148,10 +158,11 @@ p.clr {
   background-color: rgba(255, 66, 126, 1);
   border-color: rgba(255, 66, 126, 1);
   color: white;
+  cursor: pointer;
 }
 
 .btn-filter {
-  margin: 80px 80px 0px;
+  margin-top: 80px;
 }
 
 .btn-select {
@@ -169,6 +180,11 @@ p.clr {
   color: white;
 }
 
+.btn .btn-login {
+  background-color: none;
+  border-color: none;
+}
+
 .open {
   display: inline;
 }
@@ -180,18 +196,42 @@ p.clr {
   font-size: 30px;
 }
 
+.label {
+  font-size: 20px;
+  text-shadow: 4px 4px 8px gray;
+}
+
+.label-rel {
+  margin: 0 15px;
+  text-shadow: 4px 4px 8px gray;
+}
+
+.link-show {
+  margin: -50px 0px 30px 60%;
+}
+
+.link-show a {
+  color: rgba(173, 173, 173, 0.7);
+  padding: 15px;
+}
+
+.link-show a:hover {
+  background-color: rgba(255, 66, 126, 0.6);
+  color: white;
+}
+
 .noty_text {
   font-size: 18px;
   font-weight: normal;
 }
 
 .post-text {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .image-tag-pin {
-  height: 410px;
-  width: 310px;
+  height: 400px;
+  width: 360px;
   border-radius: 10px 10px 0 0;
 }
 
@@ -236,10 +276,14 @@ footer {
 /*  background-color: #f5f5f5;*/
 }
 
-li {
+.container-fluid.gridster {
+  width: 100%;
+}
+
+.gridster li {
   float: left;
-  height: 500px;
-  width: 310px;
+  height: 560px;
+  width: 360px;
   list-style: none;
   margin: 14px;
   color: black;
@@ -249,9 +293,9 @@ li {
   box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
 }
 
-.gridster {
+/*.gridster {
   margin: 0 80px;
-}
+}*/
 
 .gridster ul {
   margin: 0px;
@@ -259,9 +303,15 @@ li {
 }
 
 .pin-p {
-  font: 16px Helvetica;
+  font: 20px Helvetica;
   color: #333;
   margin: 0 20px;
+  overflow: auto;
+  max-height: 70px;
+}
+
+.row.profile {
+  margin: 10px 0 0 0;
 }
 
 .gridster .gs-w {

@@ -4,8 +4,7 @@ main.container role="main"
       legend.text-leg id="startbtn" Start now
       = form_for :user, url: login_url, html: { id: "login-form" } do |f|
         fieldset
-          / .form-group id="open"
-          .form-group id="open"
+          .form-group
             .form-group
               = f.label :email, class: "sr-only"
               = f.text_field :email, class: "form-control input-lg", placeholder: "Email Address"
@@ -13,5 +12,5 @@ main.container role="main"
               = f.label :password, class: "sr-only"
               = f.password_field :password, class: "form-control input-lg", placeholder: "Password"
             .form-group
-              = f.submit "Sign In", class: "btn btn-primary btn-lg btn-block"
+              = f.submit "Sign In", class: "btn btn-lg btn-block"
 

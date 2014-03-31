@@ -16,40 +16,46 @@ main.container role="main"
         = form_for :form, url: form_index_url, method: :post, html: { id: "submit-form" } do |m|
           fieldset
             legend.text-leg Best Wishes to
-            .form-group
-              = m.label :name, class: "sr-only"
-              = m.text_field :name, class: "form-control input-lg", placeholder: "Name"
-            .form-group
-              = m.label :relationship, "Family", :value => "family"
-              = m.radio_button :relationship, "Family"
-              = m.label :relationship, "Friends", :value => "friends"
-              = m.radio_button :relationship, "Friends"
-            .form-group
-              = m.label :message, class: "sr-only"
-              = m.text_area :message, class: "form-control input-lg", placeholder: "Message"
-            .form-group
-              p.label When do you know?
-              = m.label :year, class: "sr-only"
-              = m.select :year, (Time.zone.now.year - 28)..(Time.zone.now.year + 1), class: "form-control input-lg"
-            .form-group
-              p.label Upload your picture
-              = m.label :image, class: "sr-only"
-              = m.file_field :image
-            .form-group
-              = m.submit "Congratulations", class: "btn btn-lg btn-block"
-    .btn-group.btn-group-justified.btn-filter
-      .btn-group
-        btn.btn-lg.active.btn-select type="button" id="btn-all" All
-        span.glyphicon.glyphicon-heart
-        btn.btn-lg.active.btn-select type="button" id="btn-family" Family
-        span.glyphicon.glyphicon-heart
-        btn.btn-lg.active.btn-select type="button" id="btn-friends" Friends
-    .gridster
-      - for form in @forms
-        ul class="#{form.relationship}"
-          li data-col="1" data-row="1" data-sizex="1" data-sizey="1"
-            = image_tag form.image.url, class: "image-tag-pin pin post-text"
-            p.pin-p = form.message
+            .post-text
+              .form-group
+                = m.label :name, class: "sr-only"
+                = m.text_field :name, class: "form-control input-lg", placeholder: "Name"
+              .form-group
+                = m.label :relationship, "Family", :value => "family", class: "label-rel"
+                = m.radio_button :relationship, "Family"
+                = m.label :relationship, "Friends", :value => "friends", class: "label-rel"
+                = m.radio_button :relationship, "Friends"
+              .form-group
+                = m.label :message, class: "sr-only"
+                = m.text_area :message, class: "form-control input-lg", placeholder: "Message"
+              .form-group
+                p.label When do you know?
+                = m.label :year, class: "sr-only"
+                = m.select :year, (Time.zone.now.year - 28)..(Time.zone.now.year + 1), class: "form-control input-lg"
+              .form-group
+                p.label Upload your picture
+                = m.label :image, class: "sr-only"
+                = m.file_field :image
+              .form-group
+                = m.submit "Congratulations", class: "btn btn-lg btn-block"
+.container-fluid
+  .btn-group.btn-group-justified.btn-filter
+    .btn-group
+      btn.btn-lg.active.btn-select type="button" id="btn-all" All
+      span.glyphicon.glyphicon-heart
+      btn.btn-lg.active.btn-select type="button" id="btn-family" Family
+      span.glyphicon.glyphicon-heart
+      btn.btn-lg.active.btn-select type="button" id="btn-friends" Friends
+  .gridster
+    - for form in @forms
+      ul class="#{form.relationship}"
+        li data-col="1" data-row="1" data-sizex="1" data-sizey="1"
+          = image_tag form.image.url, class: "image-tag-pin pin post-text"
+          .link-show
+            = link_to 'Show', form_url(form.id)
+            = link_to 'Edit', edit_form_url(form.id)
+          p.pin-p = form.message
+          .row.profile
             = image_tag form.image.url, class: "img-circle"
             = form.name
         / li data-col="1" data-row="2" data-sizex="1" data-sizey="1"
