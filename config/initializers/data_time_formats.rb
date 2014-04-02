@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:mail_timestamp] = "%a %-d %b %Y %-I:%M %p"

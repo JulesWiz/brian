@@ -1,5 +1,5 @@
 .row
-  = form_for @user, url: reset_url(@user.reset_code), method: :patch, html: { id: "resetform"} do |f|
+  = form_for @user, url: reset_password_url(@user.reset_code), method: :patch, html: { id: "resetform"} do |f|
     fieldset
       legend Choose a new password
       .form-group

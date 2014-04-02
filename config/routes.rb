@@ -15,7 +15,7 @@ Brian::Application.routes.draw do
   get 'privacy' => 'site#privacy'
   get 'terms' => 'site#terms'
 
-  get 'reset/:code' => 'password#edit', as: :reset
+  get 'reset/:code' => 'password#edit', as: :reset_password
   put 'reset/:code' => 'password#update'
   patch 'reset/:code' => 'password#update'
 
