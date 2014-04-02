@@ -11,7 +11,7 @@ class Form
   field :message, type: String
   field :year, type: Integer
 
-  validates :name, :relationship, :message, :year, presence: true
+  validates :name, :relationship, :message, :year, :image, presence: true
 
   belongs_to :user
 

@@ -17,20 +17,6 @@
 light pink = rgba(255, 66, 126, 0.8)
 light gray = rgba(173, 173, 173, 0.5)*/
 
-
-
-.navbar.navbar-default {
-  background: rgba(255, 66, 126, 0.8);
-  color: white;
-  font-size: 40px;
-  text-shadow: 4px 4px 8px gray;
-  font-family: 'Vampiro One', cursive;
-}
-
-.col-md-offset-9 {
-  margin-left: 70%;
-}
-
 body {
   background-color: rgba(245, 240, 234, 1);
 /*  background: url(<%= asset_path 'Wedding.jpg' %>) no-repeat center center fixed;*/
@@ -40,101 +26,6 @@ body {
   background-size: cover;*/
   font-family: 'Vampiro One', cursive;
   height: 100%;
-}
-
-p.clr {
-  text-align: center;
-  padding-top: 30px;
-}
-
-.middleheart {
-  background-image: url(<%= asset_path 'heart.png' %>);
-  background-position: center top;
-    background-position-x: 50%;
-  position: relative;
-  width: 138px;
-  height: 118px;
-  left: 50%;
-  margin: 0 -80px;
-}
-/*
-.navbar-default.navbar-brand {
-  color: #000;
-  font-size: 40px;
-}*/
-
-.input-group {
-  margin-bottom: 20px;
-}
-
-.container {
-/*  margin-top: 110px ;*/
-  min-height: 100%;
-  height: auto;
-  width: auto;
-  margin: 110px 100px 0px 100px;
-  /* Negative indent footer by its height */
-/*  margin: 110px 0 auto -60px;*/
-  /* Pad bottom by footer height */
-/*  padding: 0 0 100px;*/
-}
-
-main.login-bg {
-  background: url(<%= asset_path 'Wedding.jpg' %>) no-repeat center center fixed;
-  height: 1000px;
-  margin: 0;
-}
-
-.card-pattern {
-  background-image: url(<%= asset_path 'card.png' %>);
-  background-repeat: repeat;
-  background-position: left top;
-  height: auto;
-  margin: -60px auto;
-  clear: both;
-  padding-bottom: 40px;
-  z-index: 999999;
-}
-
-.card-left {
-  float: left;
-/*  width: 45%;*/
-}
-
-.groom-image {
-  background-image: url(<%= asset_path 'groom.png' %>);
-  background-repeat: no-repeat;
-  margin-left: 100%;
-  width: 344px;
-  height: 289px;
-}
-
-.bride-image {
-  background-image: url(<%= asset_path 'bride.png' %>);
-  background-repeat: no-repeat;
-  margin-left: 53%;
-  width: 344px;
-  height: 289px;
-}
-
-.bride {
-  width: 46%;
-  font-size: 35px;
-  float: right;
-  margin-top: -90px;
-  text-align: left;
-}
-
-.groom {
-  width: 44%;
-  font-size: 35px;
-  float: left;
-  margin-top: -90px;
-  text-align: right;
-}
-
-.logout-link {
-  margin-top: 8px ;
 }
 
 .box-bg {
@@ -153,18 +44,31 @@ main.login-bg {
   margin-left: 29%
 }
 
+.bride {
+  width: 46%;
+  font-size: 35px;
+  float: right;
+  margin-top: -90px;
+  text-align: left;
+}
+
+.bride-image {
+  background-image: url(<%= asset_path 'bride.png' %>);
+  background-repeat: no-repeat;
+  margin-left: 53%;
+  width: 344px;
+  height: 289px;
+}
+
 .btn {
   background-color: rgba(255, 66, 126, 1);
   border-color: rgba(255, 66, 126, 1);
   color: white;
 }
 
-.btn-send {
-  margin-left: 42%;
-  background-color: rgba(255, 66, 126, 1);
-  border-color: rgba(255, 66, 126, 1);
-  color: white;
-  cursor: pointer;
+.btn .btn-login {
+  background-color: none;
+  border-color: none;
 }
 
 .btn-filter {
@@ -186,20 +90,112 @@ main.login-bg {
   color: white;
 }
 
-.btn .btn-login {
-  background-color: none;
-  border-color: none;
-}
-
-.open {
-  display: inline;
-}
-
-.text-leg {
+.btn-send {
+  margin-left: 42%;
+  background-color: rgba(255, 66, 126, 1);
+  border-color: rgba(255, 66, 126, 1);
   color: white;
-  text-shadow: 4px 4px 8px gray;
+  cursor: pointer;
+}
+
+.card-left {
+  float: left;
+/*  width: 45%;*/
+}
+
+.card-pattern {
+  background-image: url(<%= asset_path 'card.png' %>);
+  background-repeat: repeat;
+  background-position: left top;
+  height: auto;
+  margin: -60px auto;
+  clear: both;
+  padding-bottom: 40px;
+  z-index: 999999;
+}
+
+.col-md-offset-9 {
+  margin-left: 70%;
+}
+
+.container {
+  min-height: 100%;
+  height: auto;
+  width: auto;
+  margin: 110px 100px 0px 100px;
+}
+
+.container-fluid.gridster {
+  width: 100%;
+}
+
+footer {
+  height: 60px;
+/*  background-color: #f5f5f5;*/
+}
+
+.gridster li {
+  float: left;
+  height: 560px;
+  width: 360px;
+  list-style: none;
+  margin: 14px;
+  color: black;
+  display: inline-block;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+}
+
+.gridster ul {
+  margin: 0px;
+  float: left;
+}
+
+.gridster .gs-w {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.groom-image {
+  background-image: url(<%= asset_path 'groom.png' %>);
+  background-repeat: no-repeat;
+  margin-left: 100%;
+  width: 344px;
+  height: 289px;
+}
+
+.groom {
+  width: 44%;
+  font-size: 35px;
+  float: left;
+  margin-top: -90px;
+  text-align: right;
+}
+
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Vampiro One', cursive;
-  font-size: 30px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.logout-link {
+  margin-top: 8px ;
+}
+
+.image-tag-pin {
+  height: 400px;
+  width: 360px;
+  border-radius: 10px 10px 0 0;
+}
+
+.img-circle {
+  height: 40px;
+  width: 40px;
+  margin: 5px 15px;
 }
 
 .label {
@@ -226,37 +222,51 @@ main.login-bg {
   color: white;
 }
 
+main.login-bg {
+  background: url(<%= asset_path 'Wedding.jpg' %>) no-repeat center center fixed;
+  height: 1000px;
+  margin: 0;
+}
+
+.middleheart {
+  background-image: url(<%= asset_path 'heart.png' %>);
+  background-position: center top;
+    background-position-x: 50%;
+  position: relative;
+  width: 138px;
+  height: 118px;
+  left: 50%;
+  margin: 0 -80px;
+}
+
+.navbar.navbar-default {
+  background: rgba(255, 66, 126, 0.8);
+  color: white;
+  font-size: 40px;
+  text-shadow: 4px 4px 8px gray;
+  font-family: 'Vampiro One', cursive;
+}
+
 .noty_text {
   font-size: 18px;
   font-weight: normal;
 }
 
-.post-text {
-  font-size: 20px;
+.open {
+  display: inline;
 }
 
-.image-tag-pin {
-  height: 400px;
-  width: 360px;
-  border-radius: 10px 10px 0 0;
-}
-
-.img-circle {
-  height: 40px;
-  width: 40px;
-  margin: 5px 15px;
+p.clr {
+  text-align: center;
+  padding-top: 30px;
 }
 
 .pin {
   display: inline-block;
-/*  background: #FEFEFE;*/
-/*  border: 2px solid #FAFAFA;*/
   margin: 0 0px 15px;
   -webkit-column-break-inside: avoid;
   -moz-column-break-inside: avoid;
   column-break-inside: avoid;
-/*  padding: 15px;
-  padding-bottom: 5px;*/
   background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
   opacity: 1;
 
@@ -273,41 +283,6 @@ main.login-bg {
   margin-bottom: 5px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Vampiro One', cursive;
-}
-
-footer {
-  height: 60px;
-/*  background-color: #f5f5f5;*/
-}
-
-.container-fluid.gridster {
-  width: 100%;
-}
-
-.gridster li {
-  float: left;
-  height: 560px;
-  width: 360px;
-  list-style: none;
-  margin: 14px;
-  color: black;
-  display: inline-block;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-}
-
-/*.gridster {
-  margin: 0 80px;
-}*/
-
-.gridster ul {
-  margin: 0px;
-  float: left;
-}
-
 .pin-p {
   font: 20px Helvetica;
   color: #333;
@@ -320,56 +295,11 @@ footer {
   margin: 10px 0 0 0;
 }
 
-.gridster .gs-w {
-  cursor: pointer;
-  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+.text-leg {
+  color: white;
+  text-shadow: 4px 4px 8px gray;
+  font-family: 'Vampiro One', cursive;
+  font-size: 30px;
 }
 
-/*li.photo {
-  cursor: pointer;
-}
-
-li.photo img {
-  display: block;
-  width: 310px;
-  height: 310px;
-}
-
-li.quote {
-  padding: 60px 30px 30px 30px;
-  width: 310px;
-  background: #0066cc;
-  text-align: center;
-}
-
-li.quote p {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 20px;
-  margin:  0 0 10px 0;
-}*/
-
-/*.board {
-  width: 240px;
-  height: 240px;
-  margin: 10px auto 20px;
-}
-
-.board-row {
-  clear: both;
-}
-
-.board-cell {
-  font-family: Verdana, Helvetica, Arial, Sans-serif;
-  font-size: 60px;
-  float: left;
-  text-align: center;
-  text-transform: uppercase;
-  width: 70px;
-  height: 70px;
-  padding-top: 5px;
-  border: 1px solid hsla(   0,   0.0%,  60.0%, 1 );
-}*/
 
