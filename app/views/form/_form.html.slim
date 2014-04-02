@@ -1,23 +1,21 @@
-legend.text-leg Best Wishes to
-  .post-text
-    .form-group
-      = m.label :name, class: "sr-only"
-      = m.text_field :name, class: "form-control input-lg", placeholder: "Name"
-    .form-group
-      = m.label :relationship, "Family", :value => "family", class: "label-rel"
-      = m.radio_button :relationship, "Family"
-      = m.label :relationship, "Friends", :value => "friends", class: "label-rel"
-      = m.radio_button :relationship, "Friends"
-    .form-group
-      = m.label :message, class: "sr-only"
-      = m.text_area :message, class: "form-control input-lg", placeholder: "Message"
-    .form-group
-      p.label When do you know?
-      = m.label :year, class: "sr-only"
-      = m.select :year, (Time.zone.now.year - 28)..(Time.zone.now.year + 1), class: "form-control input-lg"
-    .form-group
-      p.label Upload your picture
-      = m.label :image, class: "sr-only"
-      = m.file_field :image
-    .form-group
-      = m.submit "Congratulations", class: "btn btn-lg btn-block"
+.form-group
+  = m.label :name, class: "sr-only"
+  = m.text_field :name, class: "form-control input-lg", placeholder: "Name"
+.form-group
+  = m.label :relationship, "Family", :value => "family", class: "label-rel"
+  = m.radio_button :relationship, "Family"
+  = m.label :relationship, "Friends", :value => "friends", class: "label-rel"
+  = m.radio_button :relationship, "Friends"
+.form-group
+  = m.label :message, class: "sr-only"
+  = m.text_area :message, class: "form-control input-lg", placeholder: "Message"
+.form-group
+  p.label When do you know?
+  = m.label :year, class: "sr-only"
+  = m.select :year, (Time.zone.now.year - 28)..(Time.zone.now.year + 1), class: "form-control input-lg"
+.form-group
+  p.label Upload your picture
+  = m.label :image, class: "sr-only"
+  = m.file_field :image
+.form-group
+  = m.submit "Congratulations", class: "btn btn-lg btn-block"

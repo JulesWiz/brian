@@ -3,14 +3,4 @@
     = form_for :form, url: form_index_url, method: :post, html: { id: "submit-form" } do |m|
       fieldset
         legend.text-leg Best Wishes to
-          render :partial => "form", :m => m
-          / .form-group
-          /   = m.label :relationship_siblings, class: "sr-only"
-          /   = m.text_field :relationship, class: "form-control input-lg", placeholder: "Relationship with Wed Couple"
-
-        / - if @user.errors.any?
-        /   h2 pluralize(@post.errors.count, "error")
-        /     ul
-        /       - @user.errors.full_messages.each do |msg|
-        /         li
-        /           = msg
+        = render partial: "form", locals: { m: m }

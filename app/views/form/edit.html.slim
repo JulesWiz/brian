@@ -2,25 +2,5 @@
   .col-md-8.col-md-offset-2.box-bg
     = form_for :form, url: form_url, method: :patch, html: { id: "reset-allform" } do |m|
       fieldset
-        legend.text-leg Best Wishes to
-        .form-group
-          = m.label :name, class: "sr-only"
-          = m.text_field :name, class: "form-control input-lg", placeholder: "Name"
-        .form-group
-          = m.label :relationship, "Family", :value => "family"
-          = m.radio_button :relationship, "Family"
-          = m.label :relationship, "Friends", :value => "friends"
-          = m.radio_button :relationship, "Friends"
-        .form-group
-          = m.label :message, class: "sr-only"
-          = m.text_area :message, class: "form-control input-lg", placeholder: "Message"
-        .form-group
-          p.label When do you know?
-          = m.label :year, class: "sr-only"
-          = m.select :year, (Time.zone.now.year - 28)..(Time.zone.now.year + 1), class: "form-control input-lg"
-        .form-group
-          p.label Upload your picture
-          = m.label :image, class: "sr-only"
-          = m.file_field :image
-        .form-group
-          = m.submit "Update Your Wishes", class: "btn btn-primary btn-lg btn-block"
+        legend.text-leg Edit your wishes
+        = render partial: "form", locals: { m: m }
