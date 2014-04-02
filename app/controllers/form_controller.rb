@@ -18,7 +18,6 @@ class FormController < ApplicationController
     @user = current_user
     @form = @user.forms.new(form_params)
     if @form.save
-      # redirect_to form_url(@form.id), notice: "You have successfully send your love."
       redirect_to root_url, notice: "You have successfully send your love."
     else
       render :new

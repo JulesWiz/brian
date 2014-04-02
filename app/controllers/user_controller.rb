@@ -5,7 +5,6 @@ class UserController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # @user.save
     if @user.save
       log_user_in(@user, "You have successfully signed up!")
     else
