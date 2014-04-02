@@ -10,10 +10,10 @@ class User
 
   attr_accessor :password, :password_confirmation
 
-  field :email, type: String
-  field :salt, type: String
-  field :fish, type: String
-  field :reset_code, type: String
+  field :email
+  field :salt
+  field :fish
+  field :reset_code
   field :reset_expires_at, type: Time
   field :admin, type: Boolean, default: false
 
@@ -43,7 +43,7 @@ class User
     self.update_attributes(params)
   end
 
-  def set_password_reset
+  def set_reset_code
     self.reset_code = SecureRandom.urlsafe_base64
     set_expiration
   end

@@ -6,10 +6,10 @@ class Form
 
   mount_uploader :image, ImageUploader
 
-  field :name, type: String
-  field :relationship, type: String
-  field :message, type: String
-  field :year, type: Integer
+  field :name
+  field :relationship
+  field :message
+  field :year
 
   validates :name, :relationship, :message, :year, :image, presence: true
 

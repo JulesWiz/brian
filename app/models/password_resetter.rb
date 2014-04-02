@@ -1,7 +1,7 @@
 class PasswordResetter
 
-  SUCCESS = "We'll send you an email with instrutions for resetting"
-  USER_NOT_FOUND = "Unable to log you in. Please check your Email and Password again "
+  SUCCESS = %{ We'll send you an email with instrutions for resetting }.squish
+  USER_NOT_FOUND = %{ Unable to log you in. Please check your Email and Password again }.squish
   MAIL_FAILED = "Unable to send email. Please notify webmaster"
   SAVE_FAILED = "Password reset failed. Please notify webmaster"
 
@@ -9,32 +9,36 @@ class PasswordResetter
     @flash = flash
   end
 
-  def handle_reset_request(params)
-    if @user = User.find_by(email: params[:email])
-      update_user_and_send_email
+  def handle_reset_request(user_params)
+    if @user = User.find_by(email: user_params[:email])
+      set_reset_code_and_notify_user
     else
       @flash.now[:alert] = USER_NOT_FOUND
     end
   end
 
-  def update_password(user, params)
-    if user.reset_password( params )
-      UserNotifier.password_was_reset( user ).deliver
+  def update_password(user, user_params)
+    if user.reset_password(user_params)
+      begin
+        UserNotifier.password_was_reset( user ).deliver
+      rescue
+        #mail didn't send
+      end
       return true
     end
   end
 
   private
 
-  def update_user_and_send_email
-    if @user.set_password_reset
-      send_reset_email
+  def set_reset_code_and_notify_user
+    if @user.set_reset_code
+      send_password_reset_coded_link
     else
       @flash.now[:alert] = SAVE_FAILED
     end
   end
 
-  def send_reset_email
+  def send_password_reset_coded_link
     begin
       UserNotifier.reset_password(@user).deliver
       @flash.now[:notice] = SUCCESS
