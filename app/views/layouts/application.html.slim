@@ -29,12 +29,20 @@ html lang="en"
             .fb-share-button data-href="https://www.facebook.com/pages/Bestime-Cafe-&#x597d;&#x65f6;&#x5149;" data-width="292px" data-type="button_count"
             / .fb-share-button data-href="https://www.facebook.com/pages/Bestime-Cafe-%E5%A5%BD%E6%97%B6%E5%85%89/597145100334357" data-width="292px" data-type="button_count"
             = link_to "Login", login_url, class: "btn" unless current_user
+            / .popover-markup.trigger a href="#" Login
+            /   .head.hide Start Title
+            /   .content.hide
+            /       .form-group
+            /       input type="text" class="form-control" placeholder="Type something…"
+            /       button type="submit" class="btn btn-default btn-block" Submit
+            /   .footer.hide test
             = link_to "Sign Up", signup_url, class: "btn" unless current_user
             = link_to "Log Out", logout_url, method: :delete, class: "btn btn-danger logout-link" if current_user
           .navbar-header
             navbar-brand href="#" Memory
 
-    == yield
+    main.container role="main"
+      == yield
 
     footer
       .container

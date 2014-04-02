@@ -1,44 +1,21 @@
-main.container role="main"
-  .row
-    / = link_to "Send your wishes", new_form_url, class: "btn btn-primary btn-lg btn-block"
-    .card-pattern
-      p.clr Were Getting Married  -  Sunday, 8th June 2014
-      .middleheart
-      p.groom Jeff Bezos
-      p.bride Jeffie Bezos
-      .card-left
-        .groom-image
-      .card-middle
-      .card-right
-        .bride-image
-      btn.btn-lg.btn-send id="form-btn" Send Your Wishes
-      .form-group.box-bg-index id="down"
-        = form_for :form, url: form_index_url, method: :post, html: { id: "submit-form" } do |m|
-          fieldset
-            legend.text-leg Best Wishes to
-            .post-text
-              .form-group
-                = m.label :name, class: "sr-only"
-                = m.text_field :name, class: "form-control input-lg", placeholder: "Name"
-              .form-group
-                = m.label :relationship, "Family", :value => "family", class: "label-rel"
-                = m.radio_button :relationship, "Family"
-                = m.label :relationship, "Friends", :value => "friends", class: "label-rel"
-                = m.radio_button :relationship, "Friends"
-              .form-group
-                = m.label :message, class: "sr-only"
-                = m.text_area :message, class: "form-control input-lg", placeholder: "Message"
-              .form-group
-                p.label When do you know?
-                = m.label :year, class: "sr-only"
-                = m.select :year, (Time.zone.now.year - 28)..(Time.zone.now.year + 1), class: "form-control input-lg"
-              .form-group
-                p.label Upload your picture
-                = m.label :image, class: "sr-only"
-                = m.file_field :image
-              .form-group
-                = m.submit "Congratulations", class: "btn btn-lg btn-block"
-.container-fluid
+.row
+  / = link_to "Send your wishes", new_form_url, class: "btn btn-primary btn-lg btn-block"
+  .card-pattern
+    p.clr Were Getting Married  -  Sunday, 8th June 2014
+    .middleheart
+    p.groom Jeff Bezos
+    p.bride Jeffie Bezos
+    .card-left
+      .groom-image
+    .card-middle
+    .card-right
+      .bride-image
+    btn.btn-lg.btn-send id="form-btn" Send Your Wishes
+    .form-group.box-bg-index id="down"
+      = form_for :form, href: "#gridster", method: :post, html: { id: "submit-form" } do |m|
+        fieldset
+          render 'form, locals => { :m => m }
+.row
   .btn-group.btn-group-justified.btn-filter
     .btn-group
       btn.btn-lg.active.btn-select type="button" id="btn-all" All
@@ -58,50 +35,50 @@ main.container role="main"
           .row.profile
             = image_tag form.image.url, class: "img-circle"
             = form.name
-        / li data-col="1" data-row="2" data-sizex="1" data-sizey="1"
-        /   = form.message
-        / li data-col="1" data-row="3" data-sizex="1" data-sizey="1"
-        / li data-col="2" data-row="1" data-sizex="2" data-sizey="1"
-        / li data-col="2" data-row="2" data-sizex="2" data-sizey="2"
-        / li data-col="4" data-row="1" data-sizex="1" data-sizey="1"
-        / li data-col="4" data-row="2" data-sizex="2" data-sizey="1"
-        / li data-col="4" data-row="3" data-sizex="1" data-sizey="1"
-        / li data-col="5" data-row="1" data-sizex="1" data-sizey="1"
-        / li data-col="5" data-row="3" data-sizex="1" data-sizey="1"
-        / li data-col="6" data-row="1" data-sizex="1" data-sizey="1"
-        / li data-col="6" data-row="2" data-sizex="1" data-sizey="2"
-        / - for form in @forms
-        /   ul.row class="post-text #{form.relationship}"
-        /     li.photo
-        /       = image_tag form.image.url, class: "image-tag"
-        /     li.quote
-        /       = form.message
-        /     li.photo
-        /       = image_tag form.image.url, class: "image-tag"
-        / li
-        /   = form.name
-        / li
-        /   = form.relationship
-        / li
-        /   = form.message
-        / li
-        /   = form.year
-        / li
-        /   = image_tag form.image.url, class: "image-tag"
-        / li
-        /   = link_to 'Show', form_url(form.id)
-        / li
-        /   = link_to 'Edit', edit_form_url(form.id)
-        / section id="gameboard.board"
-        /   .board-row id="row-0"
-        /     .board-cell.top.left id="cell-0"
-        /     .board-cell.top.center id="cell-1"
-        /     .board-cell.top.right id="cell-2"
-          / .board-row id="row-1"
-          /   .board-cell.middle.left id="cell-3"
-          /   .board-cell.middle.center id="cell-4"
-          /   .board-cell.middle.right id="cell-5"
-          / .board-row id="row-2"
-          /   .board-cell.bottom.left id="cell-6"
-          /   .board-cell.bottom.center id="cell-7"
-          /   .board-cell.bottom.right id="cell-8"
+      / li data-col="1" data-row="2" data-sizex="1" data-sizey="1"
+      /   = form.message
+      / li data-col="1" data-row="3" data-sizex="1" data-sizey="1"
+      / li data-col="2" data-row="1" data-sizex="2" data-sizey="1"
+      / li data-col="2" data-row="2" data-sizex="2" data-sizey="2"
+      / li data-col="4" data-row="1" data-sizex="1" data-sizey="1"
+      / li data-col="4" data-row="2" data-sizex="2" data-sizey="1"
+      / li data-col="4" data-row="3" data-sizex="1" data-sizey="1"
+      / li data-col="5" data-row="1" data-sizex="1" data-sizey="1"
+      / li data-col="5" data-row="3" data-sizex="1" data-sizey="1"
+      / li data-col="6" data-row="1" data-sizex="1" data-sizey="1"
+      / li data-col="6" data-row="2" data-sizex="1" data-sizey="2"
+      / - for form in @forms
+      /   ul.row class="post-text #{form.relationship}"
+      /     li.photo
+      /       = image_tag form.image.url, class: "image-tag"
+      /     li.quote
+      /       = form.message
+      /     li.photo
+      /       = image_tag form.image.url, class: "image-tag"
+      / li
+      /   = form.name
+      / li
+      /   = form.relationship
+      / li
+      /   = form.message
+      / li
+      /   = form.year
+      / li
+      /   = image_tag form.image.url, class: "image-tag"
+      / li
+      /   = link_to 'Show', form_url(form.id)
+      / li
+      /   = link_to 'Edit', edit_form_url(form.id)
+      / section id="gameboard.board"
+      /   .board-row id="row-0"
+      /     .board-cell.top.left id="cell-0"
+      /     .board-cell.top.center id="cell-1"
+      /     .board-cell.top.right id="cell-2"
+        / .board-row id="row-1"
+        /   .board-cell.middle.left id="cell-3"
+        /   .board-cell.middle.center id="cell-4"
+        /   .board-cell.middle.right id="cell-5"
+        / .board-row id="row-2"
+        /   .board-cell.bottom.left id="cell-6"
+        /   .board-cell.bottom.center id="cell-7"
+        /   .board-cell.bottom.right id="cell-8"

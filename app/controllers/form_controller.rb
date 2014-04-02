@@ -3,7 +3,7 @@ class FormController < ApplicationController
   before_action :is_authenticated?, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @forms = Form.desc(:created_at).limit(5).entries
+    @forms = Form.desc(:created_at).entries
     @family = @forms.select{|x| x.relationship == "family"}
     @friends = @forms.select{|x| x.relationship == "friends"}
     # @form = Form.find_by(id: params[:id])

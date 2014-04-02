@@ -9,14 +9,20 @@ $ ->
       360
       560
     ]
-  # gridster = $(".gridster ul").gridster().data("gridster")
-  # $("#draggable").draggable()
-  # $(".gridster ").droppable drop: (event, ui) ->
-  #   $("#draggable").removeAttr "style"
-  #   gridster.add_widget "<li class=\"new\"><img src=\"http://www.sparity.com/images/facebookIcon.jpg\" alt=\"facebook\"  ></li>", 1, 1
-  #   return
 
-  # return
+    # widgets = [
+    #   ['<ul></ul>', 1, 2],
+    #   ['<ul></ul>', 3, 2]
+    # ]
+
+    # gridster = $(".gridster ul").gridster().data("gridster")
+    # $("#draggable").draggable()
+    # $(".gridster ").droppable drop: (event, ui) ->
+    #   $("#draggable").removeAttr "style"
+    #   # $.each(widgets), (i, widget) ->
+    #   gridster.add_widget.apply(gridster, widget)
+
+
 
 
 

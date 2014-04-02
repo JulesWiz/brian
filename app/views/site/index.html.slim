@@ -1,5 +1,4 @@
-main.container role="main"
-    .row
-      .col-md-8.col-md-offset-2.box-bg
-        legend.text-leg welcome #{@current_user.email}
-        = link_to "Send your wishes", new_form_path, class: "btn btn-primary btn-lg btn-block"
+.row
+  .col-md-8.col-md-offset-2.box-bg
+    legend.text-leg welcome #{@current_user.email}
+    = link_to "Send your wishes", new_form_path, class: "btn btn-primary btn-lg btn-block"

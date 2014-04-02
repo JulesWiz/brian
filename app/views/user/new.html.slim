@@ -1,17 +1,16 @@
-main.container role="main"
-  .row
-    .col-md-4.col-md-offset-9.box-bg
-      = form_for :user, url: signup_url, method: :post, html: { id: "signup-form" } do |f|
-        fieldset
-          legend.text-leg Start now
-          .form-group
-            = f.label :email, class: "sr-only"
-            = f.text_field :email, class: "form-control input-lg", placeholder: "Email Address"
-          .form-group
-            = f.label :password, class: "sr-only"
-            = f.password_field :password, class: "form-control input-lg", placeholder: "Password"
-          .form-group
-            = f.label :password_confirmation, class: "sr-only"
-            = f.password_field :password_confirmation, class: "form-control input-lg", placeholder: "Type it again"
-          .form-group
-            = f.submit "Sign Up", class: "btn btn-primary btn-lg btn-block"
+.row
+  .col-md-4.col-md-offset-9.box-bg
+    = form_for :user, url: signup_url, method: :post, html: { id: "signup-form" } do |f|
+      fieldset
+        legend.text-leg Start now
+        .form-group
+          = f.label :email, class: "sr-only"
+          = f.text_field :email, class: "form-control input-lg", placeholder: "Email Address"
+        .form-group
+          = f.label :password, class: "sr-only"
+          = f.password_field :password, class: "form-control input-lg", placeholder: "Password"
+        .form-group
+          = f.label :password_confirmation, class: "sr-only"
+          = f.password_field :password_confirmation, class: "form-control input-lg", placeholder: "Type it again"
+        .form-group
+          = f.submit "Sign Up", class: "btn btn-primary btn-lg btn-block"
