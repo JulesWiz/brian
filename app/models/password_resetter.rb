@@ -10,7 +10,7 @@ class PasswordResetter
   end
 
   def handle_reset_request(user_params)
-    if @user = User.find_by(email: user_params[:email])
+    if @user = User.find_by( email: user_params[:email] )
       set_reset_code_and_notify_user
     else
       @flash.now[:alert] = USER_NOT_FOUND
@@ -42,7 +42,9 @@ class PasswordResetter
     begin
       UserNotifier.coded_password_reset_link(@user).deliver
       @flash.now[:notice] = SUCCESS
-    rescue
+    rescue Exception => e
+      puts e.message
+      puts e.backtrace.inspect
       @flash.now[:alert] = MAIL_FAILED
     end
   end

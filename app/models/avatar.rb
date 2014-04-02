@@ -13,8 +13,8 @@
 #     # s3_host_alias:   'something.cloudfront.net',
 #     s3_credentials:
 #       :bucket => "brian-paperclip",
-#       :access_key_id => "AKIAIPC5IT5UVSK55DDQ",
-#       :secret_access_key => "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",
+#       :access_key_id => "",
+#       :secret_access_key => "",
 #       :s3_host_name => 's3-ap-southeast-1.amazonaws.com'
 #     styles:  {
 #       original:  ['1920x1680>', :jpg],

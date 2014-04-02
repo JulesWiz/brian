@@ -19,7 +19,9 @@ class User
 
   has_many :forms, validate: false, dependent: :delete, autosave: true
 
-  before_save :set_random_password, :encrypt_password
+  before_create :set_random_password, unless: :password
+  before_save :encrypt_password, if: :password
+  before_save :downcase_attributes
   validates :email, presence: true, uniqueness: {case_sensitive: false}
   validates :password, confirmation: true
 
@@ -61,20 +63,23 @@ class User
 
   protected
 
+    def downcase_attributes
+      self.email.downcase!
+    end
+
+    def set_salt
+      self.salt = BCrypt::Engine.generate_salt
+    end
+
     def set_random_password
-      if self.fish.blank? and password.blank?
-        self.salt = BCrypt::Engine.generate_salt
-        self.fish = BCrypt::Engine.hash_secret(SecureRandom.base64(32), self.salt)
+      if self.fish.blank?
+        self.fish = BCrypt::Engine.hash_secret(SecureRandom.base64(32), set.salt)
       end
     end
 
     def encrypt_password
-      puts "Encrypting the password: #{self.password}"
-      if password.present?
-        self.salt = BCrypt::Engine.generate_salt
-        self.fish = BCrypt::Engine.hash_secret(password, self.salt)
+      self.fish = BCrypt::Engine.hash_secret(password, set.salt)
       true
-      end
     end
 
 end
