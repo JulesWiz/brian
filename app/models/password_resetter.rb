@@ -40,7 +40,7 @@ class PasswordResetter
 
   def send_password_reset_coded_link
     begin
-      UserNotifier.reset_password(@user).deliver
+      UserNotifier.coded_password_reset_link(@user).deliver
       @flash.now[:notice] = SUCCESS
     rescue
       @flash.now[:alert] = MAIL_FAILED
