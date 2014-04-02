@@ -17,14 +17,6 @@ $ ->
   $("#form-btn").click ->
     $("#down").slideToggle(300)
 
-  # $(".popover-markup>.trigger").popover
-  # html: true
-  # title: ->
-  #   $(@).parent().find(".head").html()
-
-  # content: ->
-  #   $(@).parent().find(".content").html()
-
   $("#open").hide()
 
   $("#down").hide()

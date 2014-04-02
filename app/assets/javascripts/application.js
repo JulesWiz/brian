@@ -15,7 +15,7 @@
 //= require ./vendor/noty/packaged/jquery.noty.packaged.min
 //= require ./vendor/noty/themes/default
 //= require form
-//= require ./vendor/gridster/dist/jquery.gridster.js
+//= require ./vendor/gridster/dist/jquery.gridster
 //= require gridster
 
 

@@ -32,9 +32,9 @@
       span.glyphicon.glyphicon-heart
       .btn-lg.btn-select type="button" id="btn-friends" Friends
   .gridster
-    - for form in @forms
-      ul class="#{form.relationship}"
-        li data-col="1" data-row="1" data-sizex="1" data-sizey="1"
+    ul
+      - for form in @forms
+        li class="#{form.relationship}" data-col="1" data-row="1" data-sizex="1" data-sizey="1"
           = image_tag form.image.url, class: "image-tag-pin pin"
           .link-show
             = link_to 'Show', form_url(form.id)

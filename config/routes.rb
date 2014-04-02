@@ -7,8 +7,8 @@ Brian::Application.routes.draw do
   get 'signup' => 'user#new'
   post 'signup' => 'user#create'
 
-  get 'login' => 'session#new'
-  post 'login' => 'session#create'
+  get 'login' => 'session#new', as: :login_form
+  post 'login' => 'session#create', as: :log_in
   delete 'logout' => 'session#destroy'
   # get 'logout' => 'session#destroy'
 

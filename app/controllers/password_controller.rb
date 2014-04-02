@@ -5,7 +5,7 @@ class PasswordController < ApplicationController
 
   def edit
     unless @user = User.find_by_code( params[:code] )
-      redirect_to login_url, notice: LINK_EXPIRED
+      redirect_to login_form_url, notice: LINK_EXPIRED
     end
   end
 
@@ -16,7 +16,9 @@ class PasswordController < ApplicationController
         return if log_user_in( @user, PASSWORD_RESET )
         # redirect_to( root_url, notice: PASSWORD_RESET ) and return
       else
-        flash.now[:alert] = @user.errors
+        binding.pry
+        error_message = @user.errors.full_messages.join('\n')
+        flash.now[:alert] = error_message
       end
     # otherwise show a message not found
     else

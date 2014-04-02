@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def is_authenticated?
     # redirect_to login_url if session[:user_id].nil?
     unless current_user
-      redirect_to login_url, notice: "You have to log in to access this section."
+      redirect_to login_form_url, notice: "You have to log in to access this section."
     end
   end
 
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
 
   def log_user_out
     session[:user_id] = nil
-    redirect_to login_url, notice: "You've successfully logged out."
+    redirect_to login_form_url, notice: "You've successfully logged out."
   end
 
   private
