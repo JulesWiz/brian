@@ -4,12 +4,7 @@
     = form_for :user, url: login_url, html: { id: "login-form" } do |f|
       fieldset
         .form-group
-          .form-group
-            = f.label :email, class: "sr-only"
-            = f.text_field :email, class: "form-control input-lg", placeholder: "Email Address"
-          .form-group
-            = f.label :password, class: "sr-only"
-            = f.password_field :password, class: "form-control input-lg", placeholder: "Password"
+          = render partial: "field", locals: { f: f }
           .form-group
             = f.submit "Sign In", class: "btn btn-lg btn-block"
 
