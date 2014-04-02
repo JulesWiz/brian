@@ -1,14 +1,12 @@
 class FormController < ApplicationController
 
   before_action :is_authenticated?, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   def index
     @forms = Form.desc(:created_at).entries
     @family = @forms.select{|x| x.relationship == "family"}
     @friends = @forms.select{|x| x.relationship == "friends"}
-    # @form = Form.find_by(id: params[:id])
-    # @forms = Form.where(relationship: relationship).limit(10).entries
-    # @relationship = Form::RELATIONSHIP.map {|relationship| [relationship, relationship]}
   end
 
   def new
@@ -29,15 +27,12 @@ class FormController < ApplicationController
   end
 
   def show
-    @form = Form.find(params[:id])
   end
 
   def edit
-    @form = Form.find(params[:id])
   end
 
   def update
-    @form = Form.find(params[:id])
     if
       @form.update(params[:form].permit(:name, :relationship, :message, :year, :image))
       redirect_to @form
@@ -47,9 +42,7 @@ class FormController < ApplicationController
   end
 
   def destroy
-    @form = Form.find(params[:id])
     @form.destroy
-
     redirect_to root_url, notice: "Your form has been deleted."
   end
 
@@ -57,6 +50,10 @@ class FormController < ApplicationController
 
   def form_params
     params.require(:form).permit(:user_id, :id, :name, :relationship, :message, :year, :image)
+  end
+
+  def set_message
+    @form = Form.find(params[:id])
   end
 
 
