@@ -33,13 +33,4 @@
       .btn-lg.btn-select type="button" id="btn-friends" Friends
   .gridster
     ul
-      - for form in @forms
-        li class="#{form.relationship}" data-col="1" data-row="1" data-sizex="1" data-sizey="1"
-          = image_tag form.image.url, class: "image-tag-pin pin"
-          .link-show
-            = link_to 'Show', form_url(form.id)
-            = link_to 'Edit', edit_form_url(form.id)
-          p.pin-p = form.message
-          .row.profile
-            = image_tag form.image.url, class: "img-circle"
-            = form.name
+      = render partial: "pin", collection: @forms, as: :form

@@ -16,7 +16,6 @@ class PasswordController < ApplicationController
         return if log_user_in( @user, PASSWORD_RESET )
         # redirect_to( root_url, notice: PASSWORD_RESET ) and return
       else
-        binding.pry
         error_message = @user.errors.full_messages.join('\n')
         flash.now[:alert] = error_message
       end

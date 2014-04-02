@@ -20,8 +20,9 @@ class FormController < ApplicationController
     if @form.save
       redirect_to root_url, notice: "You have successfully send your love."
     else
+      error_message = @form.errors.full_messages.join('\n')
+      flash.now[:alert] = error_message
       render :new
-      flash[:alert] = "Please fill in all fields"
     end
   end
 
