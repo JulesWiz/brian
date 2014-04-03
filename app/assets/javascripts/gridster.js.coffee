@@ -2,11 +2,11 @@ $ ->
 
   $(".gridster ul").gridster
     widget_margins: [
-      20
+      10
       20
     ]
     widget_base_dimensions: [
-      360
+      340
       560
     ]
 
